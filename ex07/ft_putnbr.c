@@ -2,17 +2,22 @@
 
 void	ft_putnbr(int nb)
 {
-	int	number;
+	char	minus;
 
-	number = nb;
-	write(1, &number, sizeof(int));
-}
-
-int main(void)
-{
-	int number;
-
-	number = 575153;
-	ft_putnbr(number);
-	return (0);
+	minus = 45;
+	if(nb < 0)
+	{
+		write(1, &minus, 1);
+		ft_putnbr(-nb);
+	}
+	else if(nb > 9)
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+	else
+	{
+		nb = nb + '0';
+		write(1, &nb, sizeof(int));
+	}
 }
